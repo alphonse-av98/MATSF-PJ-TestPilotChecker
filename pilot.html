@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Pilot</title>
+    <style type="text/css">
+        body{
+            background-color: rgb(225, 251, 255);
+        }
+
+
+        #outputBtnArea input[type="button"] {
+            display: none;
+        }
+
+        #outputBtnArea label {
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px #999;
+            padding: 2px 6px;
+        }
+
+        span {
+            display: inline-block;
+        }
+
+        .formBlock {
+            display: list-item;
+            width: 420px;
+            margin: 20px 0px 5px 0px;
+        }
+
+        .formBlock * {
+            display: block;
+        }
+
+        .valueLabel {
+            font-size: x-large;
+            display: block;
+            width: 100%;
+            padding: 0px 10px 0px 10px;
+            background-color: rgb(59, 160, 255);
+            color: azure;
+        }
+
+        .unitLabel {
+            margin-left: 4px;
+            font-size: large;
+        }
+
+        .valueForm{
+            margin-top: 10px;
+        }
+
+        .valueForm * {
+            display: inline;
+        }
+
+        .valueForm input[type="number"] {
+            height: 30px;
+            width: 200px;
+            padding: 0 4px;
+            border-radius: 4px;
+            border: none;
+            box-shadow: 0 0 0 1px #ccc inset;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-size: large;
+        }
+
+        .valueForm input[type="number"]:focus {
+            outline: 0;
+            box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+        }
+
+        textarea {
+            height: 300px;
+            width: 400px;
+            display: block;
+            margin-top: 10px;
+            padding: 4px 4px;
+            border-radius: 4px;
+            border: none;
+            box-shadow: 0 0 0 1px #ccc inset;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            resize: both;
+        }
+
+        textarea:focus {
+            outline: 0;
+            box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="inputForm">
+        <div id="group">
+            <h2 class="langCng" lang="ja">プロフィール作成フォーム</h2>
+            <h2 class="langCng" lang="en">Profile Creater</h2>
+            <div class="formBlock">
+                <label for="height" class="valueLabel">
+                    <span class="langCng" lang="ja">身長</span>
+                    <span class="langCng" lang="en">Height</span>
+                </label>
+                <div class="valueForm">
+                    <input id="height" type="number" min="140">
+                    <label class="unitLabel">cm</label>
+                </div>
+            </div>
+
+            <div class="formBlock">
+                <label for="weight" class="valueLabel">
+                    <span class="langCng" lang="ja">体重</span>
+                    <span class="langCng" lang="en">Weight</span>
+                </label>
+                <div class="valueForm">
+                    <input id="weight" type="number" min="1">
+                    <label class="unitLabel">kg</label>
+                </div>
+            </div>
+
+            <div class="formBlock">
+                <label for="age" class="valueLabel">
+                    <span class="langCng" lang="ja">年齢</span>
+                    <span class="langCng" lang="en">Age</span>
+                </label>
+                <div class="valueForm">
+                    <input id="age" type="number" min="0">
+                    <label class="unitLabel">
+                        <span class="langCng" lang="ja">歳</span>
+                        <span class="langCng" lang="en">age</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="formBlock">
+                <label class="valueLabel">
+                    <span class="langCng" lang="ja">性別</span>
+                    <span class="langCng" lang="en">Gender</span>
+                </label>
+                <div class="valueForm">
+                    <input type="radio" name="gender" id="male" value="男性">
+                    <label for="male">
+                        <span class="langCng" lang="ja">男性</span>
+                        <span class="langCng" lang="en">Male</span>
+                    </label>
+                    <input type="radio" name="gender" id="female" value="女性">
+                    <label for="female">
+                        <span class="langCng" lang="ja">女性</span>
+                        <span class="langCng" lang="en">Female</span>
+                    </label>
+                    <input type="radio" name="gender" id="other" value="その他">
+                    <label for="other">
+                        <span class="langCng" lang="ja">その他</span>
+                        <span class="langCng" lang="en">Other</span>
+                    </label>
+                    <br />
+                </div>
+            </div>
+
+            <div class="formBlock">
+                <label for="bust-size" class="valueLabel">
+                    <span class="langCng" lang="ja">バスト</span>
+                    <span class="langCng" lang="en">Bust size</span>
+                </label>
+                <div class="valueForm">
+                    <input id="bust-sizes" type="number" min="1">
+                    <label class="unitLabel">cm</label>
+                </div>
+            </div>
+
+            <div class="formBlock">
+                <label for="waist-size" class="valueLabel">
+                    <span class="langCng" lang="ja">ウェスト</span>
+                    <span class="langCng" lang="en">Waist size</span>
+                </label>
+                <div class="valueForm">
+                    <input id="waist-sizes" type="number" min="1">
+                    <label class="unitLabel">cm</label>
+                </div>
+            </div>
+
+            <div class="formBlock">
+                <label for="hip-size" class="valueLabel">
+                    <span class="langCng" lang="ja">ヒップ</span>
+                    <span class="langCng" lang="en">Hip size</span>
+                </label>
+                <div class="valueForm">
+                    <input id="hip-sizes" type="number" min="1">
+                    <label class="unitLabel">cm</label>
+                </div>
+            </div>
+
+            <div class="formBlock">
+                <label for="character" class="valueLabel">
+                    <span class="langCng" lang="ja">性格</span>
+                    <span class="langCng" lang="en">Character</span>
+                </label>
+                <textarea id="character"></textarea>
+            </div>
+
+            <div class="formBlock">
+                <label for="traits" class="valueLabel">
+                    <span class="langCng" lang="ja">特性</span>
+                    <span class="langCng" lang="en">Traits</span>
+                </label>
+                <textarea id="traits"></textarea>
+            </div>
+
+            <div class="formBlock">
+                <label for="strong-point" class="valueLabel">
+                    <span class="langCng" lang="ja">長所</span>
+                    <span class="langCng" lang="en">Strong Point</span>
+                </label>
+                <textarea id="strong-point"></textarea>
+            </div>
+
+            <div class="formBlock">
+                <label for="weak-point" class="valueLabel">
+                    <span class="langCng" lang="ja">短所</span>
+                    <span class="langCng" lang="en">Weak Point</span>
+                </label>
+                <textarea id="weak-point"></textarea>
+            </div>
+
+            <div class="formBlock">
+                <label for="background" class="valueLabel">
+                    <span class="langCng" lang="ja">出自背景</span>
+                    <span class="langCng" lang="en">Background</span>
+                </label>
+                <textarea id="background"></textarea>
+            </div>
+
+            <div class="formBlock">
+                <label for="career" class="valueLabel">
+                    <span class="langCng" lang="ja">経歴</span>
+                    <span class="langCng" lang="en">Career</span>
+                </label>
+                <textarea id="career"></textarea>
+            </div>
+        </div>
+    </div>
+    <div id="outputBtnArea">
+        <input id="outputBtn" type="button" onclick="output()">
+        <label for="outputBtn">
+            <span class="langCng" lang="ja">出力</span>
+            <span class="langCng" lang="en">Output</span>
+        </label>
+    </div>
+    <div id="outputForm">
+        <label id="outputText"></label>
+    </div>
+</body>
+
+<script>
+    // ブラウザのデフォルト言語を取得して切り替え
+    window.onload = function () {
+        var wDef = (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0, 2);
+        langSet(wDef);
+    }
+
+    function langSet(argLang) {
+        var elm = document.getElementsByClassName("langCng");
+        for (var i = 0; i < elm.length; i++) {
+            if (elm[i].getAttribute("lang") == argLang) {
+                elm[i].style.display = '';
+            } else {
+                elm[i].style.display = 'none';
+            }
+        }
+    }
+
+    function output() {
+        alert("output")
+    }
+</script>
+
+</html>
