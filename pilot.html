@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Test Pilot</title>
     <style type="text/css">
         body {
@@ -434,7 +435,7 @@
     }
 
     function output() {
-        var outputText = "■名前■\r\n";
+        let outputText = "■名前■\r\n";
         outputText += $('#inputForm [name=pilot-name]').val();
         outputText += "\r\n\r\n";
         outputText += "■身長■\r\n";
@@ -477,19 +478,11 @@
         outputText += $('#inputForm [name=career]').val();
         outputText += "\r\n";
 
-        const pre = document.createElement('pre');
-        pre.style.webkitUserSelect = 'auto';
-        pre.style.userSelect = 'auto';
-        pre.textContent = outputText;
-
-        document.body.appendChild(pre);
-        document.getSelection().selectAllChildren(pre);
-
-        const result = document.execCommand('copy');
-
-        document.body.removeChild(pre);
-
-        alert("クリップボードに保存しました");
+        const blob = new Blob([outputText],{type:"text/plain"});
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'download.txt';
+        link.click();
     }
 
     function submitFnc() {
