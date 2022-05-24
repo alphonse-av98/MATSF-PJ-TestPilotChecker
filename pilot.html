@@ -91,7 +91,7 @@
         }
 
 
-        a.btn-emergency-real {
+        span.btn-emergency-real {
             position: relative;
 
             display: block;
@@ -101,13 +101,13 @@
             margin: 0 auto;
         }
 
-        a.btn-emergency-real:hover .btn-emergency-real-top {
+        span.btn-emergency-real:hover .btn-emergency-real-top {
             top: 10px;
 
             height: 50px;
         }
 
-        a.btn-emergency-real:active .btn-emergency-real-top {
+        span.btn-emergency-real:active .btn-emergency-real-top {
             top: 20px;
 
             height: 40px;
@@ -218,11 +218,29 @@
             -webkit-box-shadow: 0 8px 0 #c4cacc, inset 1px -1px 10px 0 rgba(0, 0, 0, 0.2);
             box-shadow: 0 8px 0 #c4cacc, inset 1px -1px 10px 0 rgba(0, 0, 0, 0.2);
         }
+
+        input[type="text"]:required,
+        input[type="number"]:required,
+        input[type="radio"]:required,
+        textarea:required {
+            color: #630015;
+            border-color: #c20c33;
+            background-color: #ffd9e1;
+        }
+
+        input[type="text"]:valid,
+        input[type="number"]:valid,
+        input[type="radio"]:valid,
+        textarea:valid {
+            color: #333;
+            border-color: #ccc;
+            background: #fff;
+        }
     </style>
 </head>
 
 <body>
-    <div id="inputForm">
+    <form id="inputForm">
         <div id="group">
             <h2 class="langCng" lang="ja">プロフィール作成フォーム</h2>
             <h2 class="langCng" lang="en">Profile Creater</h2>
@@ -232,7 +250,7 @@
                     <span class="langCng" lang="en">Name</span>
                 </label>
                 <div class="valueForm">
-                    <input id="pilot-name" type="text">
+                    <input id="pilot-name" type="text" required>
                 </div>
             </div>
 
@@ -242,7 +260,7 @@
                     <span class="langCng" lang="en">Height</span>
                 </label>
                 <div class="valueForm">
-                    <input id="height" type="number" min="140">
+                    <input id="height" type="number" min="140" required>
                     <label class="unitLabel">cm</label>
                 </div>
             </div>
@@ -253,7 +271,7 @@
                     <span class="langCng" lang="en">Weight</span>
                 </label>
                 <div class="valueForm">
-                    <input id="weight" type="number" min="1">
+                    <input id="weight" type="number" min="1" required>
                     <label class="unitLabel">kg</label>
                 </div>
             </div>
@@ -264,7 +282,7 @@
                     <span class="langCng" lang="en">Age</span>
                 </label>
                 <div class="valueForm">
-                    <input id="age" type="number" min="0">
+                    <input id="age" type="number" min="0" required>
                     <label class="unitLabel">
                         <span class="langCng" lang="ja">歳</span>
                         <span class="langCng" lang="en">age</span>
@@ -278,7 +296,7 @@
                     <span class="langCng" lang="en">Gender</span>
                 </label>
                 <div class="valueForm">
-                    <input type="radio" name="gender" id="male" value="男性">
+                    <input type="radio" name="gender" id="male" value="男性" required>
                     <label for="male">
                         <span class="langCng" lang="ja">男性</span>
                         <span class="langCng" lang="en">Male</span>
@@ -303,7 +321,7 @@
                     <span class="langCng" lang="en">Bust size</span>
                 </label>
                 <div class="valueForm">
-                    <input id="bust-sizes" type="number" min="1">
+                    <input id="bust-sizes" type="number" min="1" required>
                     <label class="unitLabel">cm</label>
                 </div>
             </div>
@@ -314,7 +332,7 @@
                     <span class="langCng" lang="en">Waist size</span>
                 </label>
                 <div class="valueForm">
-                    <input id="waist-sizes" type="number" min="1">
+                    <input id="waist-sizes" type="number" min="1" required>
                     <label class="unitLabel">cm</label>
                 </div>
             </div>
@@ -325,7 +343,7 @@
                     <span class="langCng" lang="en">Hip size</span>
                 </label>
                 <div class="valueForm">
-                    <input id="hip-sizes" type="number" min="1">
+                    <input id="hip-sizes" type="number" min="1" required>
                     <label class="unitLabel">cm</label>
                 </div>
             </div>
@@ -335,7 +353,7 @@
                     <span class="langCng" lang="ja">性格</span>
                     <span class="langCng" lang="en">Character</span>
                 </label>
-                <textarea id="character"></textarea>
+                <textarea id="character" required></textarea>
             </div>
 
             <div class="formBlock">
@@ -343,7 +361,7 @@
                     <span class="langCng" lang="ja">特性</span>
                     <span class="langCng" lang="en">Traits</span>
                 </label>
-                <textarea id="traits"></textarea>
+                <textarea id="traits" required></textarea>
             </div>
 
             <div class="formBlock">
@@ -351,7 +369,7 @@
                     <span class="langCng" lang="ja">長所</span>
                     <span class="langCng" lang="en">Strong Point</span>
                 </label>
-                <textarea id="strong-point"></textarea>
+                <textarea id="strong-point" required></textarea>
             </div>
 
             <div class="formBlock">
@@ -359,7 +377,7 @@
                     <span class="langCng" lang="ja">短所</span>
                     <span class="langCng" lang="en">Weak Point</span>
                 </label>
-                <textarea id="weak-point"></textarea>
+                <textarea id="weak-point" required></textarea>
             </div>
 
             <div class="formBlock">
@@ -367,7 +385,7 @@
                     <span class="langCng" lang="ja">出自背景</span>
                     <span class="langCng" lang="en">Background</span>
                 </label>
-                <textarea id="background"></textarea>
+                <textarea id="background" required></textarea>
             </div>
 
             <div class="formBlock">
@@ -375,26 +393,25 @@
                     <span class="langCng" lang="ja">経歴</span>
                     <span class="langCng" lang="en">Career</span>
                 </label>
-                <textarea id="career"></textarea>
+                <textarea id="career" required></textarea>
             </div>
         </div>
-    </div>
+    </form>
 
-    <a class="btn-emergency-real">
+    <span class="btn-emergency-real" onclick="submitFnc()">
         <span class="btn-emergency-real-bottom"></span>
         <span class="btn-emergency-real-top">
             <span class="langCng" lang="ja">出力</span>
             <span class="langCng" lang="en">Output</span>
         </span>
-    </a>
-
+        </a>
 </body>
 
 <script>
     // ブラウザのデフォルト言語を取得して切り替え
     window.onload = function () {
         let wDef = (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0, 2);
-        switch (wDef){
+        switch (wDef) {
             case 'en':
             case 'ja':
                 break;
@@ -405,7 +422,7 @@
     }
 
     function langSet(argLang) {
-        var elm = document.getElementsByClassName("langCng");
+        let elm = document.getElementsByClassName("langCng");
         for (var i = 0; i < elm.length; i++) {
             if (elm[i].getAttribute("lang") == argLang) {
                 elm[i].style.display = '';
@@ -417,6 +434,16 @@
 
     function output() {
         alert("output")
+    }
+
+    function submitFnc() {
+        let forms = document.getElementById('inputForm');
+        for (let i = 0; i < forms.length; i++) {
+            if (!forms[i].reportValidity()) {
+                return false;
+            }
+        }
+        output();
     }
 </script>
 
