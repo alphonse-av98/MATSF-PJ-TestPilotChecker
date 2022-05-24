@@ -50,7 +50,8 @@
             display: inline;
         }
 
-        .valueForm input[type="number"] {
+        .valueForm input[type="number"],
+        .valueForm input[type="text"] {
             height: 30px;
             width: 200px;
             padding: 0 4px;
@@ -63,7 +64,8 @@
             font-size: large;
         }
 
-        .valueForm input[type="number"]:focus {
+        .valueForm input[type="number"]:focus,
+        .valueForm input[type="texr"]:focus {
             outline: 0;
             box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
         }
@@ -226,6 +228,16 @@
             <h2 class="langCng" lang="en">Profile Creater</h2>
             <div class="formBlock">
                 <label class="valueLabel">
+                    <span class="langCng" lang="ja">名前</span>
+                    <span class="langCng" lang="en">Name</span>
+                </label>
+                <div class="valueForm">
+                    <input id="pilot-name" type="text">
+                </div>
+            </div>
+
+            <div class="formBlock">
+                <label class="valueLabel">
                     <span class="langCng" lang="ja">身長</span>
                     <span class="langCng" lang="en">Height</span>
                 </label>
@@ -381,7 +393,14 @@
 <script>
     // ブラウザのデフォルト言語を取得して切り替え
     window.onload = function () {
-        var wDef = (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0, 2);
+        let wDef = (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0, 2);
+        switch (wDef){
+            case 'en':
+            case 'ja':
+                break;
+            default:
+                wDef = 'ja';
+        }
         langSet(wDef);
     }
 
