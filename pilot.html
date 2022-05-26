@@ -247,11 +247,11 @@
             <h2 class="langCng" lang="en">Profile Creater</h2>
             <div class="formBlock">
                 <label class="valueLabel">
-                    <span class="langCng" lang="ja">名前</span>
-                    <span class="langCng" lang="en">Name</span>
+                    <span class="langCng" lang="ja">キャラクター名前</span>
+                    <span class="langCng" lang="en">Character Name</span>
                 </label>
                 <div class="valueForm">
-                    <input name="pilot-name" type="text" required>
+                    <input name="character-name" type="text" required>
                 </div>
             </div>
 
@@ -436,7 +436,7 @@
 
     function output() {
         let outputText = "■名前■\r\n";
-        outputText += $('#inputForm [name=pilot-name]').val();
+        outputText += $('#inputForm [name=character-name]').val();
         outputText += "\r\n\r\n";
         outputText += "■身長■\r\n";
         outputText += $('#inputForm [name=height]').val();
