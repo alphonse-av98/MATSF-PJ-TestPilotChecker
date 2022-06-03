@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>New TSF</title>
+    <style type="text/css">
+        body {
+            background-color: rgb(225, 251, 255);
+        }
+
+        #inputForm {
+            margin-left: auto;
+            margin-right: auto;
+            width: 450px;
+        }
+
+        span {
+            display: inline-block;
+        }
+
+        .formBlock {
+            display: block;
+            width: 420px;
+            margin: 20px 0px 5px 0px;
+        }
+
+        .formBlock * {
+            display: block;
+        }
+
+        .valueLabel {
+            font-size: x-large;
+            display: block;
+            width: 100%;
+            padding: 0px 10px 0px 10px;
+            background-color: rgb(59, 160, 255);
+            color: azure;
+        }
+
+        .unitLabel {
+            margin-left: 4px;
+            font-size: large;
+        }
+
+        .valueForm {
+            margin-top: 10px;
+        }
+
+        .valueForm * {
+            display: inline;
+        }
+
+        .valueForm input[type="number"],
+        .valueForm input[type="text"] {
+            height: 30px;
+            width: 200px;
+            padding: 0 4px;
+            border-radius: 4px;
+            border: none;
+            box-shadow: 0 0 0 1px #ccc inset;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-size: large;
+        }
+
+        .valueForm input[type="number"]:focus,
+        .valueForm input[type="texr"]:focus {
+            outline: 0;
+            box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+        }
+
+        textarea {
+            height: 300px;
+            width: 400px;
+            display: block;
+            margin-top: 10px;
+            padding: 4px 4px;
+            border-radius: 4px;
+            border: none;
+            box-shadow: 0 0 0 1px #ccc inset;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            resize: both;
+        }
+
+        textarea:focus {
+            outline: 0;
+            box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+        }
+
+
+        span.btn-emergency-real {
+            position: relative;
+
+            display: block;
+
+            width: 200px;
+            height: 130px;
+            margin: 0 auto;
+        }
+
+        span.btn-emergency-real:hover .btn-emergency-real-top {
+            top: 10px;
+
+            height: 50px;
+        }
+
+        span.btn-emergency-real:active .btn-emergency-real-top {
+            top: 20px;
+
+            height: 40px;
+        }
+
+        .btn-emergency-real-top {
+            position: absolute;
+            top: 0;
+            left: 20px;
+
+            width: 160px;
+            height: 60px;
+            margin-top: 30px;
+
+            -webkit-transition: all 0.3s;
+
+            transition: all 0.3s;
+
+            border-radius: 0 0 50% 50%;
+            background-image: -webkit-gradient(linear,
+                    right top,
+                    left top,
+                    from(#630909),
+                    to(#d62d2d));
+            background-image: -webkit-linear-gradient(right, #630909 0%, #d62d2d 100%);
+            background-image: linear-gradient(to left, #630909 0%, #d62d2d 100%);
+            -webkit-box-shadow: inset 0 -1px 10px 0 rgba(0, 0, 0, 0.9),
+                0 5px 5px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 -1px 10px 0 rgba(0, 0, 0, 0.9),
+                0 5px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-emergency-real-top:before {
+            position: absolute;
+            top: -30px;
+            left: 0;
+
+            width: 160px;
+            height: 60px;
+
+            content: "";
+
+            border-radius: 80px / 30px;
+            background-image: -webkit-gradient(linear,
+                    left bottom,
+                    left top,
+                    from(#6c0c0b),
+                    to(#ed4c4c));
+            background-image: -webkit-linear-gradient(bottom, #6c0c0b 0%, #ed4c4c 100%);
+            background-image: linear-gradient(to top, #6c0c0b 0%, #ed4c4c 100%);
+            -webkit-box-shadow: 0 10px 28px 2px rgba(0, 0, 0, 0.2),
+                inset 0 5px 10px 0 rgba(0, 0, 0, 0.2),
+                inset 0 2px 1px 0 rgba(255, 255, 255, 0.6),
+                inset 0 -2px 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -2px 10px 5px rgba(237, 76, 76, 0.6),
+                inset 5px 0 1px 1px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 28px 2px rgba(0, 0, 0, 0.2),
+                inset 0 5px 10px 0 rgba(0, 0, 0, 0.2),
+                inset 0 2px 1px 0 rgba(255, 255, 255, 0.6),
+                inset 0 -2px 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -2px 10px 5px rgba(237, 76, 76, 0.6),
+                inset 5px 0 1px 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-emergency-real-top span {
+            font-size: 38px;
+            font-weight: bold;
+
+            position: absolute;
+            top: -24px;
+            left: 0;
+
+            width: 100%;
+
+            -webkit-transform: scaleY(0.75);
+
+            transform: scaleY(0.75);
+            text-align: center;
+
+            color: #e48a8a;
+            text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5),
+                1px 1px 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-emergency-real-bottom {
+            position: absolute;
+            top: 38px;
+            left: 0;
+
+            width: 200px;
+            height: 80px;
+
+            border-radius: 100px / 40px;
+            background-image: -webkit-gradient(linear,
+                    left top,
+                    right top,
+                    from(#f2f2f2),
+                    color-stop(48%, #b4b4b4),
+                    to(#767676));
+            background-image: -webkit-linear-gradient(left,
+                    #f2f2f2 0%,
+                    #b4b4b4 48%,
+                    #767676 100%);
+            background-image: linear-gradient(to right,
+                    #f2f2f2 0%,
+                    #b4b4b4 48%,
+                    #767676 100%);
+            -webkit-box-shadow: 0 8px 0 #c4cacc, inset 1px -1px 10px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 0 #c4cacc, inset 1px -1px 10px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="text"]:required,
+        input[type="number"]:required,
+        input[type="radio"]:required,
+        textarea:required {
+            color: #630015;
+            border-color: #c20c33;
+            background-color: #ffd9e1;
+        }
+
+        input[type="text"]:valid,
+        input[type="number"]:valid,
+        input[type="radio"]:valid,
+        textarea:valid {
+            color: #333;
+            border-color: #ccc;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="inputForm">
+        <div id="group">
+            <h2 class="langCng" lang="ja">機体解説テキスト作成フォーム</h2>
+            <h2 class="langCng" lang="en">Explanation of TSF</h2>
+
+            <div class="formBlock">
+                <label for="outline" class="valueLabel">
+                    <span class="langCng" lang="ja">概略（運用想定と性能解説）</span>
+                    <span class="langCng" lang="en">Outline (Assumed operation and TSF performance)
+                    </span>
+                </label>
+                <textarea name="outline" required></textarea>
+            </div>
+
+            <div class="formBlock">
+                <label for="upgrade" class="valueLabel">
+                    <span class="langCng" lang="ja">改装箇所とその解説</span>
+                    <span class="langCng" lang="en">The points of upgrade and that explanation</span>
+                </label>
+                <textarea name="upgrade" required></textarea>
+            </div>
+        </div>
+    </form>
+
+    <span class="btn-emergency-real" onclick="submitFnc()">
+        <span class="btn-emergency-real-bottom"></span>
+        <span class="btn-emergency-real-top">
+            <span class="langCng" lang="ja">出力</span>
+            <span class="langCng" lang="en">Output</span>
+        </span>
+    </span>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script>
+    // ブラウザのデフォルト言語を取得して切り替え
+    window.onload = function () {
+        let wDef = (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0, 2);
+        switch (wDef) {
+            case 'en':
+            case 'ja':
+                break;
+            default:
+                wDef = 'ja';
+        }
+        langSet(wDef);
+    }
+
+    function langSet(argLang) {
+        let elm = document.getElementsByClassName("langCng");
+        for (var i = 0; i < elm.length; i++) {
+            if (elm[i].getAttribute("lang") == argLang) {
+                elm[i].style.display = '';
+            } else {
+                elm[i].style.display = 'none';
+            }
+        }
+    }
+
+    function output() {
+        let outputText = "■概略（運用想定と性能解説）■\r\n";
+        outputText += $('#inputForm [name=outline]').val();
+        outputText += "\r\n\r\n";
+        outputText += "■改装箇所とその解説■\r\n";
+        outputText += $('#inputForm [name=upgrade]').val();
+        outputText += "\r\n";
+
+        const blob = new Blob([outputText],{type:"text/plain"});
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'tsf.txt';
+        link.click();
+    }
+
+    function submitFnc() {
+        let forms = document.getElementById('inputForm');
+        for (let i = 0; i < forms.length; i++) {
+            if (!forms[i].reportValidity()) {
+                return false;
+            }
+        }
+        output();
+    }
+</script>
+
+</html>
