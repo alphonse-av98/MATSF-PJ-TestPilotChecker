@@ -448,7 +448,7 @@
         outputText += $('#inputForm [name=age]').val();
         outputText += "\r\n\r\n";
         outputText += "■性別■\r\n";
-        outputText += $('#inputForm [name=gender]').val();
+        outputText += $('input:radio[name="gender"]:checked').val();
         outputText += "\r\n\r\n";
         outputText += "■バスト■\r\n";
         outputText += $('#inputForm [name=bust-size]').val();
